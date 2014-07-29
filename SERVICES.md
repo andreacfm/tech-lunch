@@ -115,8 +115,8 @@ Looking at the code we see that the 2 extra methods we added belongs to a partic
  
  and we rely on the Task model callback to accomplish our post creation duties:
  
- # Task.rb
- class Task
+     # Task.rb
+     class Task
  	include Mongoid::Document
 	field :name
 	field :description
@@ -131,7 +131,7 @@ Looking at the code we see that the 2 extra methods we added belongs to a partic
 		.....
 	end
 	
- end
+     end
  
 After running our test suite ee already note a downside. Our code works but now anytime a Task instance is persisted the 2 callbacks gets fired. Even if we create the instance from a spec factory the callbacks are fired .... We do not like this because it adds unwanted noise to any Task creation but we think we will survive. The controllers are skinny, the model is getting FAT ... but we decide we are still going well.
  
